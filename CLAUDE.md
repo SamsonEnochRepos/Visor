@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Offline, touchless Windows control system: drive the OS with hand gestures (webcam + MediaPipe) and voice commands (Vosk). Everything runs locally, no cloud. Python, Windows 10/11 only (uses `win32gui`, `os.startfile`, DirectShow camera backend).
 
-This is not a git repository.
+Git repository, on branch `main`, with `origin` → `github.com/SamsonEnochRepos/Visor`. The large Vosk model (`models/vosk-model-small-en-us-0.15/`) and runtime logs are gitignored; `assets/hand_landmarker.task` is tracked (it is not auto-downloaded).
 
 ## Directory layout
 
