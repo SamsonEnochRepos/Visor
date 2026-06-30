@@ -1,7 +1,8 @@
 """Quick functional test for perception, recognition, and intent layers."""
 import sys, time, os
 os.environ["PYTHONIOENCODING"] = "utf-8"
-sys.path.insert(0, ".")
+# Application code now lives under src/ — put it on the import path.
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "src"))
 if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8")
 import numpy as np

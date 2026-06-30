@@ -50,20 +50,22 @@ if %errorlevel% neq 0 (
 )
 echo [OK] Dependencies installed
 
-:: Download Vosk model
-set MODEL_DIR=vosk-model-small-en-us-0.15
-set MODEL_ZIP=%MODEL_DIR%.zip
+:: Download Vosk model (extracted into models\)
+set MODEL_DIR=models\vosk-model-small-en-us-0.15
+set MODEL_ZIP=vosk-model-small-en-us-0.15.zip
 set MODEL_URL=https://alphacephei.com/vosk/models/%MODEL_ZIP%
+
+if not exist "models" mkdir models
 
 if not exist "%MODEL_DIR%" (
     echo [STEP 3/5] Downloading Vosk speech model ^(~40MB^)...
-    
+
     :: Try PowerShell download
     powershell -Command "& {[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; Invoke-WebRequest -Uri '%MODEL_URL%' -OutFile '%MODEL_ZIP%'}" 2>nul
-    
+
     if exist "%MODEL_ZIP%" (
         echo [OK] Model downloaded. Extracting...
-        powershell -Command "Expand-Archive -Path '%MODEL_ZIP%' -DestinationPath '.' -Force"
+        powershell -Command "Expand-Archive -Path '%MODEL_ZIP%' -DestinationPath 'models' -Force"
         del "%MODEL_ZIP%"
         echo [OK] Model extracted to %MODEL_DIR%
     ) else (

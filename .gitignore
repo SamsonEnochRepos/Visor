@@ -1,0 +1,29 @@
+# ── Python ──────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+build/
+dist/
+
+# ── Virtual environments ────────────────────────────────
+venv/
+.venv/
+env/
+ENV/
+
+# ── Logs / runtime artifacts ────────────────────────────
+*.log
+
+# ── Vosk speech model (downloaded + extracted by install.bat, ~40MB) ──
+/models/vosk-model-small-en-us-0.15/
+
+# ── OS / editor cruft ───────────────────────────────────
+.vscode/
+.idea/
+*.lnk
+Thumbs.db
+ehthumbs.db
+desktop.ini
+.DS_Store
